@@ -1,0 +1,5 @@
+{
+    "ping": "A command which returns \"Pong!\" when invoked",
+    "info": "A command which returns all information related to the bot when invoked",
+    "report": "A command which is used to report bugs and other problems"
+}
