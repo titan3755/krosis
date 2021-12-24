@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
+const client = require('../clients/discord')
 const fs = require('fs')
 const path = require('path')
 const desc = JSON.parse(fs.readFileSync(path.join(__dirname, '/../data/cmd_desc.json')))
@@ -12,19 +13,18 @@ module.exports = {
             new MessageEmbed()
             .setColor('#0099ff')
             .setTitle('Krosis Bot')
-            .setURL('https://discord.js.org/')
-            .setAuthor(interaction.user.username, interaction.user.displayAvatarURL(), 'https://discord.js.org')
-            .setDescription('Krosis is a Discord bot with some simple functionality such as minigames, currency, fun commands, trivia, memes and much more. The bot is currently in beta stage, which means there may be a whole bunch of bugs and other bad stuff. Be sure to report them right after you encounter them with the \"/report\" command.')
-            .setThumbnail('https://i.imgur.com/AfFp7pu.png')
-            .addField('Useful Commands', 'Some useful commands are listed below along with their functionality', true)
+            .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
+            .setDescription('Krosis is a Discord bot with some simple functionality such as minigames, currency, fun commands, trivia, memes and much more. The bot is currently in beta stage, which means there may be a whole bunch of bugs and other bad stuff. Be sure to report them right after you encounter them with the \"/report\" command. \n ' + 'This bot is being developed by Titan, who is currently a high-school student and a web developer. Contact the developer directly via the social links which are given below.')
+            .setThumbnail(client.user.displayAvatarURL())
+            .addField('Useful Commands', 'Some useful commands are listed below along with their functionality', false)
             .addFields(
-                { name: '/help', value: 'Invoke to get help & assistance on all commands', inline: false},
+                { name: '/help', value: 'Invoke to get help & assistance on all commands', inline: true},
                 { name: '/report', value: 'Report bugs using this command and the bug will be removed eventually', inline: true },
                 { name: '/status', value: 'Get information related to the current status of the bot', inline: true },
             )
-            .setImage('https://i.imgur.com/AfFp7pu.png')
+            .setImage(client.user.displayAvatarURL())
             .setTimestamp()
-            .setFooter('Bot created by Titan', 'https://i.imgur.com/AfFp7pu.png')
+            .setFooter('©️Krosis')
         ], ephemeral: true})
     }
 }

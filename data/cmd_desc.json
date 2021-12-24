@@ -1,5 +1,16 @@
 {
     "ping": "A command which returns \"Pong!\" when invoked",
     "info": "A command which returns all information related to the bot when invoked",
-    "report": "A command which is used to report bugs and other problems"
+    "roll": "A command which is used to roll a die",
+    "joke": "A command to brighten up your day",
+    "meme": "A command for viewing a random meme from reddit",
+    "report": "A command which is used to report bugs and other problems",
+    "delete": "A command for bulk deleting chat content [ADMIN ONLY]",
+    "quiz": "A command used to initiate a trivia game",
+    "kick": "A command for kicking server members [ADMIN ONLY]",
+    "ban": "A command for banning server members [ADMIN ONLY]",
+    "space": "A command to view random images or facts regarding space",
+    "age": "A command which will try to guess your age from your name",
+    "person": "A command which will generate a fake person",
+    "help": "A command which will assist you in using the bot"
 }

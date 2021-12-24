@@ -1,0 +1,75 @@
+{
+    "fun": [
+        {
+            "command": "/age",
+            "desc": "This command will try to guess your age from your name. It's not very accurate tho 😊",
+            "category": "fun"
+        },
+        {
+            "command": "/joke",
+            "desc": "Tells a joke to brighten up your day",
+            "category": "fun"
+        },
+        {
+            "command": "/meme",
+            "desc": "Fetches a random meme from reddit and shows it",
+            "category": "fun"
+        },
+        {
+            "command": "/person",
+            "desc": "Generates a fake person that doesn't exist",
+            "category": "fun"
+        },
+        {
+            "command": "/roll",
+            "desc": "Rolls a die",
+            "category": "fun"
+        },
+        {
+            "command": "/space",
+            "desc": "Space facts and images",
+            "category": "fun"
+        }
+    ],
+    "games": [
+        {
+            "command": "/quiz",
+            "desc": "Initiates a quiz game with variable difficulty",
+            "category": "games"
+        }
+    ],
+    "moderation": [
+        {
+            "command": "/kick",
+            "desc": "Kicks a member from the server",
+            "category": "moderation"
+        },
+        {
+            "command": "/ban",
+            "desc": "Bans a member from the server",
+            "category": "moderation"
+        },
+        {
+            "command": "/delete",
+            "desc": "Deletes a specified amount of messages from current channel",
+            "category": "moderation"
+        }
+    ],
+    "utility": [
+        {
+            "command": "/info",
+            "desc": "A command to view information regarding the bot",
+            "category": "utility"
+        },
+        {
+            "command": "/ping",
+            "desc": "A command that shows your latency",
+            "category": "utility"
+        },
+        {
+            "command": "/help",
+            "desc": "Info on all available commands",
+            "category": "utility"
+        }
+    ]
+}

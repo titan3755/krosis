@@ -19,12 +19,12 @@ module.exports = {
                 .setDescription('Optional email to contact you after the bug is fixed')
                 .setRequired(false)),
     async execute(interaction) {
+        await interaction.deferReply({ephemeral: true})
         if (cooldown.has(interaction.user.id)) {
-            await interaction.reply({content: codeBlock('This command is on cooldown! /report cannot be run within 24hrs of the last invocation!'), ephemeral: true})
+            await interaction.editReply({content: codeBlock('This command is on cooldown! /report cannot be run within 24hrs of the last invocation!'), ephemeral: true})
         }
         else {
             try {
-                await interaction.deferReply({ephemeral: true})
                 await prisma.reports.create({
                     data: {
                         username: interaction.user.username,
@@ -52,7 +52,7 @@ module.exports = {
                 }, 86400000)
             }
             catch (err) {
-                await interaction.reply({content: codeBlock('An error occured! Error: ' + err)})
+                await interaction.editReply({content: codeBlock('An error occured! Error: ' + err), ephemeral: true})
             }
         }
     }
