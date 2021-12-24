@@ -24,9 +24,7 @@
     "nodemon": "^2.0.15",
     "randomcolor": "^0.6.2",
     "utf-8-validate": "^5.0.7",
-    "zlib-sync": "^0.1.7"
-  },
-  "devDependencies": {
+    "zlib-sync": "^0.1.7",
     "prisma": "^3.6.0"
   }
 }
