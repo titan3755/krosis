@@ -66,4 +66,4 @@ client.on('interactionCreate', async interaction => {
     }
 })
 
-client.login("OTIyNTQ1MTUxMTkxMTg3NDc2.YcDBIA.MK1A2NbbWDTgcjwg4Ar3ODUqbEk")
+client.login(process.env.TOKEN)
