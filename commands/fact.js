@@ -1,8 +1,7 @@
-const { SlashCommandBuilder, codeBlock } = require('@discordjs/builders')
+const { SlashCommandBuilder, bold, blockQuote, codeBlock } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
-const { decode } = require('html-entities')
+const axios = require('axios').default
 const randomColor = require('randomcolor')
-const redditPostFetcher = require('../helpers/redditPosts')
 const fs = require('fs')
 const path = require('path')
 const desc = JSON.parse(fs.readFileSync(path.join(__dirname, '/../data/cmd_desc.json')))
@@ -12,21 +11,23 @@ module.exports = {
         .setDescription(desc[path.basename(__filename, '.js')]),
     async execute(interaction) {
         await interaction.deferReply()
-        let specificMeme = await redditPostFetcher('memes')
-        if (specificMeme) {
+        try {
+            let res = await (await axios.get('https://api.api-ninjas.com/v1/facts?limit=1', {
+                headers: {
+                    'X-Api-Key': '3UcuJxhFZTrXNo6Rkq/pAw==fRvtLwK7qnuZt103'
+                }
+            })).data
             await interaction.editReply({embeds: [
                 new MessageEmbed()
                     .setColor(randomColor())
-                    .setTitle(decode(specificMeme.data.title))
-                    .setURL('https://www.reddit.com' + specificMeme.data.permalink)
+                    .setTitle(bold('Did you know?'))
                     .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
-                    .setThumbnail('https://i.imgur.com/DUC2xA2.png')
-                    .setImage(specificMeme.data.post_hint === 'image' ? specificMeme.data.url_overridden_by_dest : 'https://via.placeholder.com/750/000000/FFFFFF/?text=ImageNotAvailable!')
+                    .setDescription(blockQuote(res[0].fact))
                     .setTimestamp()
-                    .setFooter(' 👍 ' + String(specificMeme.data.ups) + ' 🤖 ' + 'r/' + specificMeme.data.subreddit + ' 📒 ' + specificMeme.data.author)
+                    .setFooter('©️Krosis')
             ]})
         }
-        else {
+        catch (err) {
             await interaction.editReply({content: codeBlock('An error occured! Error: ' + err)})
         }
     }

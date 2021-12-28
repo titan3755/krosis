@@ -11,8 +11,18 @@
             "category": "fun"
         },
         {
+            "command": "/fact",
+            "desc": "Displays a random and interesting fact",
+            "category": "fun"
+        },
+        {
             "command": "/meme",
-            "desc": "Fetches a random meme from reddit and shows it",
+            "desc": "Fetches a random meme from reddit",
+            "category": "fun"
+        },
+        {
+            "command": "/reddit",
+            "desc": "Fetches posts from various subreddits on reddit",
             "category": "fun"
         },
         {

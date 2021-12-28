@@ -68,7 +68,8 @@ module.exports = {
             if (collection.size !== 0) {
                 let selected = shuffledAnswers[Number(collection.first().customId)]
                 if (selected.correct) {
-                    await interaction.editReply({embeds: [
+                    await interaction.editReply({components: []})
+                    await interaction.followUp({embeds: [
                         new MessageEmbed()
                             .setTitle('Correct!')
                             .setColor('GREEN')
@@ -79,7 +80,8 @@ module.exports = {
                     ], components: []})
                 }
                 else {
-                    await interaction.editReply({embeds: [
+                    await interaction.editReply({components: []})
+                    await interaction.followUp({embeds: [
                         new MessageEmbed()
                             .setTitle('Incorrect!')
                             .setColor('RED')

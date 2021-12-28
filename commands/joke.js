@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, italic, quote, codeBlock } = require('@discordjs/builders')
+const { SlashCommandBuilder, italic, blockQuote, codeBlock } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
 const randomColor = require('randomcolor')
 const axios = require('axios').default
@@ -18,7 +18,7 @@ module.exports = {
                     .setColor(randomColor())
                     .setTitle(joke.setup)
                     .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
-                    .setDescription(quote(italic(joke.delivery)))
+                    .setDescription(blockQuote(italic(joke.delivery)))
                     .setTimestamp()
                     .setFooter('©️Krosis')
             ]})
