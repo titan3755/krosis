@@ -46,6 +46,11 @@
             "command": "/quiz",
             "desc": "Initiates a quiz game with variable difficulty",
             "category": "games"
+        },
+        {
+            "command": "/rps",
+            "desc": "Initiates a rock-paper-scissors game with the bot",
+            "category": "games"
         }
     ],
     "moderation": [
@@ -57,6 +62,11 @@
         {
             "command": "/ban",
             "desc": "Bans a member from the server",
+            "category": "moderation"
+        },
+        {
+            "command": "/unban",
+            "desc": "Unbans a previously banned user",
             "category": "moderation"
         },
         {

@@ -16,15 +16,17 @@
     "axios": "^0.24.0",
     "bufferutil": "^4.0.5",
     "colors": "^1.4.0",
+    "debug": "^4.3.3",
     "discord-api-types": "^0.25.2",
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
     "html-entities": "^2.3.2",
     "nodemon": "^2.0.15",
+    "ping": "^0.4.1",
+    "prisma": "^3.6.0",
     "randomcolor": "^0.6.2",
     "utf-8-validate": "^5.0.7",
-    "zlib-sync": "^0.1.7",
-    "prisma": "^3.6.0"
+    "zlib-sync": "^0.1.7"
   },
   "engines": {
     "node": "16.13.1"

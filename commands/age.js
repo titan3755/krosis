@@ -12,7 +12,11 @@ module.exports = {
         .addStringOption(option => option.setName('name').setDescription('The name for the age is to be guessed').setRequired(true)),
     async execute(interaction) {
         await interaction.deferReply()
-        let res = await (await axios.get(`https://api.agify.io/?name=${encodeURIComponent(interaction.options.getString('name'))}`)).data
+        let res = await (await axios.get(`https://api.agify.io`, {
+            params: {
+                name: interaction.options.getString('name').split(' ').length > 1 ? interaction.options.getString('name').split(' ')[0] : interaction.options.getString('name')
+            }
+        })).data
         await interaction.editReply({embeds: [
             new MessageEmbed()
             .setColor(randomColor())

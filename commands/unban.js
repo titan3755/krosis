@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, inlineCode } = require('@discordjs/builders')
+const { SlashCommandBuilder, inlineCode, codeBlock } = require('@discordjs/builders')
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
 const fs = require('fs')
 const path = require('path')
@@ -9,59 +9,31 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName(path.basename(__filename, '.js'))
         .setDescription(desc[path.basename(__filename, '.js')])
-        .addUserOption(option => option.setName('target').setDescription('@Mention the user to be banned').setRequired(true))
-        .addStringOption(option => option.setName('reason').setDescription('An optional reason for the ban').setRequired(false)),
+        .addStringOption(option => option.setName('userid').setDescription('A userID for the unban').setRequired(true)),
     async execute(interaction) {
-        const user = interaction.options.getMember('target')
-        const reason = interaction.options.getString('reason') || 'No reason provided'
-        if (!user) {
+        const userId = interaction.options.getString('userid')
+        if (userId === String(client.user.id)) {
             await interaction.reply({embeds: [
                 new MessageEmbed()
-                .setTitle('User doesn\'t exist!')
+                .setTitle('Command error')
                 .setColor('RED')
                 .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
                 .setTimestamp()
                 .setFooter('©️Krosis')
-                .setDescription('The mentioned user no longer exists in this server!')
-            ], components: [], ephemeral: true})
-            return
-        }
-        else if (user.user.id === client.user.id) {
-            await interaction.reply({embeds: [
-                new MessageEmbed()
-                .setTitle('I cannot ban myself 😢')
-                .setColor('RED')
-                .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
-                .setTimestamp()
-                .setFooter('©️Krosis')
-                .setDescription('Mention another user to ban or if you really want to ban me, do it yourself 😎')
-            ], components: [], ephemeral: true})
-            return
-        }
-        else if (user.roles.highest.position >= interaction.member.roles.highest.position) {
-            await interaction.reply({embeds: [
-                new MessageEmbed()
-                .setTitle('Cannot ban user!')
-                .setColor('RED')
-                .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
-                .setTimestamp()
-                .setFooter('©️Krosis')
-                .setDescription('You cannot ban this user as you don\'t have the required permissions.')
+                .setDescription('Mention another user to unban.')
             ], components: [], ephemeral: true})
             return
         }
         else {
             await interaction.reply({ embeds: [
                 new MessageEmbed()
-                    .setTitle('Ban user')
+                    .setTitle('Unban user')
                     .setColor('YELLOW')
                     .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
                     .setTimestamp()
                     .setFooter('©️Krosis')
                     .setDescription(
-                        `❗ Are you sure you want to ban this user (${user.user.tag}) from (${interaction.guild.name}) ?
-                         ❗ ${inlineCode('WARNING')} This action is irreversible, choose wisely! 
-                        `
+                        `❗ Are you sure you want to unban this user from (${interaction.guild.name}) ?`
                     )
             ], components: [
                 new MessageActionRow()
@@ -85,16 +57,21 @@ module.exports = {
         collector.on('end', async collection => {
             if (collection.size !== 0) {
                 if (collection.first().customId === 'yes') {
-                    user.ban({days: 7, reason: reason})
-                    await interaction.editReply({embeds: [
-                        new MessageEmbed()
-                        .setTitle('Banned user!')
-                        .setColor('GREEN')
-                        .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
-                        .setTimestamp()
-                        .setFooter('©️Krosis')
-                        .setDescription('The user has been banned successfully!')
-                    ], components: [], ephemeral: true})
+                    try {
+                        await interaction.guild.members.unban(userId)
+                        await interaction.editReply({embeds: [
+                            new MessageEmbed()
+                            .setTitle('Unbanned user!')
+                            .setColor('GREEN')
+                            .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
+                            .setTimestamp()
+                            .setFooter('©️Krosis')
+                            .setDescription('The user has been unbanned successfully!')
+                        ], components: [], ephemeral: true})
+                    }
+                    catch (err) {
+                        await interaction.editReply({content: codeBlock('An error occured! Most likely, the user to be unbanned doesn\'t exist or hasn\'t been banned from this server before.'), ephemeral: true, embeds: [], components: []})
+                    }
                 }
                 else {
                     await interaction.editReply({embeds: [
