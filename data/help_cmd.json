@@ -39,6 +39,11 @@
             "command": "/space",
             "desc": "Space facts and images",
             "category": "fun"
+        },
+        {
+            "command": "/dictionary",
+            "desc": "Get full definition of an English word",
+            "category": "fun"
         }
     ],
     "games": [

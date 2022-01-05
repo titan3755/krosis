@@ -16,5 +16,6 @@
     "person": "A command which will generate a fake person",
     "help": "A command which will assist you in using the bot",
     "fact": "A command which displays random interesting facts",
-    "rps": "A command used to initiate a rock-paper-scissors game"
+    "rps": "A command used to initiate a rock-paper-scissors game",
+    "dictionary": "A command used to get definitions of any English word"
 }
