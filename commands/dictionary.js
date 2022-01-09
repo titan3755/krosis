@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { SlashCommandBuilder, codeBlock, bold, blockQuote, italic } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
 const randomColor = require('randomcolor')
@@ -18,7 +19,7 @@ module.exports = {
                     word: interaction.options.getString('word')
                 },
                 headers: {
-                    "X-Api-Key": "3UcuJxhFZTrXNo6Rkq/pAw==fRvtLwK7qnuZt103"
+                    "X-Api-Key": process.env.API_NINJAS_KEY
                 }
             })).data
             if (response.valid) {

@@ -44,6 +44,11 @@
             "command": "/dictionary",
             "desc": "Get full definition of an English word",
             "category": "fun"
+        },
+        {
+            "command": "/image",
+            "desc": "Get a random image or a random image from a given category",
+            "category": "fun"
         }
     ],
     "games": [

@@ -14,7 +14,7 @@ module.exports = {
         try {
             let res = await (await axios.get('https://api.api-ninjas.com/v1/facts?limit=1', {
                 headers: {
-                    'X-Api-Key': '3UcuJxhFZTrXNo6Rkq/pAw==fRvtLwK7qnuZt103'
+                    "X-Api-Key": process.env.API_NINJAS_KEY
                 }
             })).data
             await interaction.editReply({embeds: [
