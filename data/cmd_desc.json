@@ -18,5 +18,6 @@
     "fact": "A command which displays random interesting facts",
     "rps": "A command used to initiate a rock-paper-scissors game",
     "dictionary": "A command used to get definitions of any English word",
-    "image": "A command used to get a random image of a specific category"
+    "image": "A command used to get a random image of a specific category",
+    "vote": "A command used to vote the bot"
 }
