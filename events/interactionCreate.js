@@ -1,4 +1,5 @@
 const client = require('../clients/discord')
+const { MessageEmbed } = require('discord.js')
 module.exports = {
 	name: 'interactionCreate',
 	async execute(interaction) {
