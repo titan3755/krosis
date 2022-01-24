@@ -49,6 +49,11 @@
             "command": "/image",
             "desc": "Get a random image or a random image from a given category",
             "category": "fun"
+        },
+        {
+            "command": "/quote",
+            "desc": "Get a random quote from a famous person",
+            "category": "fun"
         }
     ],
     "games": [
