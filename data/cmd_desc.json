@@ -20,5 +20,6 @@
     "dictionary": "A command used to get definitions of any English word",
     "image": "A command used to get a random image of a specific category",
     "vote": "A command used to vote the bot",
-    "quote": "A command used to get a random quote"
+    "quote": "A command used to get a random quote",
+    "guess": "A command used to initialize a guessing game"
 }

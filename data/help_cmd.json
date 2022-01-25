@@ -66,6 +66,11 @@
             "command": "/rps",
             "desc": "Initiates a rock-paper-scissors game with the bot",
             "category": "games"
+        },
+        {
+            "command": "/guess",
+            "desc": "Initiates a guessing game with the bot",
+            "category": "games"
         }
     ],
     "moderation": [

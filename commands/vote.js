@@ -10,7 +10,7 @@ module.exports = {
         .setName(path.basename(__filename, '.js'))
         .setDescription(desc[path.basename(__filename, '.js')]),
     async execute(interaction) {
-        interaction.reply({embeds: [
+        await interaction.reply({embeds: [
             new MessageEmbed()
                 .setColor(randomColor())
                 .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
