@@ -1,6 +1,5 @@
 const { SlashCommandBuilder, inlineCode, bold, codeBlock, quote } = require('@discordjs/builders')
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js')
-const env = require('dotenv').config()
 const axios = require('axios').default
 const randomColor = require('randomcolor')
 const fs = require('fs')

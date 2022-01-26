@@ -1,7 +1,6 @@
-const { SlashCommandBuilder, blockQuote, bold } = require('@discordjs/builders')
+const { SlashCommandBuilder, codeBlock, blockQuote, bold } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
 const randomNumber = require('../helpers/randomRange')
-const env = require('dotenv').config()
 const client = require('../clients/discord')
 const randomColor = require('randomcolor')
 const axios = require('axios').default

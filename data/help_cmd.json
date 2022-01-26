@@ -115,6 +115,11 @@
             "command": "/vote",
             "desc": "A command used to upvote the bot",
             "category": "utility"
+        },
+        {
+            "command": "/weather",
+            "desc": "A command used to get weather information",
+            "category": "utility"
         }
     ]
 }

@@ -19,6 +19,6 @@ module.exports = {
                 .setAuthor(interaction.user.username + ' [Admin]', interaction.user.displayAvatarURL())
                 .setTimestamp()
                 .setFooter('©️Krosis')
-        ] ,ephemeral: true})
+        ], ephemeral: true})
     }
 }

@@ -1,7 +1,7 @@
+const dotenv = require('dotenv').config()
 const { Collection, Intents } = require('discord.js')
 const { MessageEmbed } = require('discord.js')
 const fs = require('fs')
-const dotenv = require('dotenv').config()
 const client = require('./clients/discord')
 const colors = require('colors');
 const { setTimeout } = require('timers/promises')

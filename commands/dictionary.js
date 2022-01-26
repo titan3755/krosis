@@ -1,4 +1,3 @@
-require('dotenv').config()
 const { SlashCommandBuilder, codeBlock, bold, blockQuote, italic } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
 const randomColor = require('randomcolor')

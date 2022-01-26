@@ -12,21 +12,26 @@ module.exports = {
         .setDescription(desc[path.basename(__filename, '.js')]),
     async execute(interaction) {
         await interaction.deferReply()
-        let specificMeme = await redditPostFetcher('memes')
-        if (specificMeme) {
-            await interaction.editReply({embeds: [
-                new MessageEmbed()
-                    .setColor(randomColor())
-                    .setTitle(decode(specificMeme.data.title))
-                    .setURL('https://www.reddit.com' + specificMeme.data.permalink)
-                    .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
-                    .setThumbnail('https://i.imgur.com/DUC2xA2.png')
-                    .setImage(specificMeme.data.post_hint === 'image' ? specificMeme.data.url_overridden_by_dest : 'https://via.placeholder.com/750/000000/FFFFFF/?text=ImageNotAvailable!')
-                    .setTimestamp()
-                    .setFooter(' 👍 ' + String(specificMeme.data.ups) + ' 🤖 ' + 'r/' + specificMeme.data.subreddit + ' 📒 ' + specificMeme.data.author)
-            ]})
+        try {
+            let specificMeme = await redditPostFetcher('memes')
+            if (specificMeme) {
+                await interaction.editReply({embeds: [
+                    new MessageEmbed()
+                        .setColor(randomColor())
+                        .setTitle(decode(specificMeme.data.title))
+                        .setURL('https://www.reddit.com' + specificMeme.data.permalink)
+                        .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
+                        .setThumbnail('https://i.imgur.com/DUC2xA2.png')
+                        .setImage(specificMeme.data.post_hint === 'image' ? specificMeme.data.url_overridden_by_dest : 'https://via.placeholder.com/750/000000/FFFFFF/?text=ImageNotAvailable!')
+                        .setTimestamp()
+                        .setFooter(' 👍 ' + String(specificMeme.data.ups) + ' 🤖 ' + 'r/' + specificMeme.data.subreddit + ' 📒 ' + specificMeme.data.author)
+                ]})
+            }
+            else {
+                await interaction.editReply({content: codeBlock('An error occured! Error: ' + err)})
+            }
         }
-        else {
+        catch (err) {
             await interaction.editReply({content: codeBlock('An error occured! Error: ' + err)})
         }
     }

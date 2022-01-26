@@ -52,7 +52,7 @@ module.exports = {
                 }, 86400000)
             }
             catch (err) {
-                await interaction.editReply({content: codeBlock('An error occured! Error: ' + err), ephemeral: true})
+                await interaction.editReply({content: codeBlock('An error occured! Error: ' + err)})
             }
         }
     }
