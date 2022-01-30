@@ -25,6 +25,7 @@
     "ping": "^0.4.1",
     "prisma": "^3.6.0",
     "randomcolor": "^0.6.2",
+    "striptags": "^3.2.0",
     "utf-8-validate": "^5.0.7",
     "zlib-sync": "^0.1.7"
   },

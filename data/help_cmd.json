@@ -120,6 +120,11 @@
             "command": "/weather",
             "desc": "A command used to get weather information",
             "category": "utility"
+        },
+        {
+            "command": "/crypto",
+            "desc": "A command used to get information about various cryptocurrencies",
+            "category": "utility"
         }
     ]
 }

@@ -22,5 +22,6 @@
     "vote": "A command used to vote the bot",
     "quote": "A command used to get a random quote",
     "guess": "A command used to initialize a guessing game",
-    "weather": "A command used to get the weather of a specific location"
+    "weather": "A command used to get the weather of a specific location",
+    "crypto": "A command used to get information regarding various cryptocurrencies"
 }
