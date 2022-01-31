@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, inlineCode } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
 const client = require('../clients/discord')
+const truncate = require('../helpers/truncate')
 const randomColor = require('randomcolor')
 const stripTags = require('striptags')
 const axios = require('axios').default
@@ -25,7 +26,7 @@ module.exports = {
                 .setColor(randomColor())
                 .setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
                 .setTitle(response.name)
-                .setDescription(stripTags(response.description.en) + '\n\n')
+                .setDescription(truncate(stripTags(response.description.en) + '\n\n', 4000))
                 .setURL(response.links.homepage[0] || 'https://www.coingecko.com')
                 .setThumbnail(response.image.large)
                 .addFields([
