@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, inlineCode } = require('@discordjs/builders')
+const { SlashCommandBuilder, inlineCode, codeBlock } = require('@discordjs/builders')
 const { MessageEmbed } = require('discord.js')
 const client = require('../clients/discord')
 const randomColor = require('randomcolor')
